@@ -1,7 +1,6 @@
 const authorModel = require("../models/autorModel");
 const postModel = require("../models/postModel");
 
-// GET
 const getAllAuthors = async (req, res) => {
   try {
     const result = await authorModel.getAllAuthors();
@@ -24,7 +23,6 @@ const getAuthorById = async (req, res) => {
   }
 };
 
-// CREATE
 const createAuthor = async (req, res) => {
   try {
     const [insertResult] = await authorModel.createAuthor(req.body);
@@ -35,7 +33,6 @@ const createAuthor = async (req, res) => {
   }
 };
 
-// UPDATE
 const updateAuthorById = async (req, res) => {
   try {
     const { authorId } = req.params;
@@ -56,7 +53,6 @@ const updateAuthorById = async (req, res) => {
   }
 };
 
-// DELETE
 const deleteAuthorById = async (req, res) => {
   try {
     const { authorId } = req.params;

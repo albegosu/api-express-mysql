@@ -1,7 +1,6 @@
 const PostModel = require("../models/postModel");
 const AutorModel = require("../models/autorModel");
 
-// GET
 const getAllPosts = async (req, res) => {
   try {
     const [posts] = await PostModel.getAllPosts();
@@ -43,7 +42,6 @@ const getPostByAuthorId = async (req, res) => {
   }
 };
 
-// CREATE
 const createPost = async (req, res) => {
   try {
     const [result] = await PostModel.createPost(req.body);
@@ -54,7 +52,6 @@ const createPost = async (req, res) => {
   }
 };
 
-// UPDATE
 const updatePostById = async (req, res) => {
   try {
     const { postId } = req.params;
@@ -65,7 +62,6 @@ const updatePostById = async (req, res) => {
   }
 };
 
-// DELETE
 const deletePostById = async (req, res) => {
   try {
     const { postId } = req.params;
