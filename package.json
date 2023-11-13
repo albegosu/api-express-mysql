@@ -1,14 +1,14 @@
 {
-  "name": "apiexpressmysql",
+  "name": "api_expres_mysql",
   "version": "1.0.0",
-  "description": "",
+  "description": "API Express conectada con MySQL blog BBDD",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Alberto Glez",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",

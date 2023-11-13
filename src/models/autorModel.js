@@ -9,7 +9,7 @@ const createAuthor = ({ name, email, image }) => {
   
   // GET
   const selectAuthorById = (authorId) => {
-    return db.query("select * from autores where idautor = ?", [authorId]);
+    return db.query("select * from autores where id_autores = ?", [authorId]);
   };
   
   const getAllAuthors = () => {
@@ -19,14 +19,14 @@ const createAuthor = ({ name, email, image }) => {
   // UPDATE
   const updateAuthorById = (authorId, { name, email, image }) => {
     return db.query(
-      "update autores set nombre = ?, email = ?, imagen = ? where idAutor = ?",
+      "update autores set nombre = ?, email = ?, imagen = ? where id_autores = ?",
       [name, email, image, authorId]
     );
   };
   
   // DELETE
   const deleteAuthorById = (authorId) => {
-    return db.query("delete from autores where idAutor = ?", [authorId]);
+    return db.query("delete from autores where id_autores = ?", [authorId]);
   };
   
   module.exports = {

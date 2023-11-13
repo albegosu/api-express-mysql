@@ -3,7 +3,7 @@ const PostModel = require("../models/postModel");
 const checkPostId = async (req, res, next) => {
   try {
     const { postId } = req.params;
-    const result = await PostModel.selectPostById(postId);
+    const result = await PostModel.getPostById(postId);
     if (result[0].length === 0) {
       return res.json({ error: "El post no existe" });
     }
@@ -29,7 +29,7 @@ function isValidDate(dateString) {
 const checkPostBody = (req, res, next) => {
   const body = req.body;
   try {
-    if (typeof body.title !== "string" || body.title.length > 60) {
+    if (typeof body.title !== "string" || body.title.length > 150) {
       return res.json({ error: "El título es incorrecto" });
     }
     if (typeof body.description !== "string" || body.description.length > 100) {

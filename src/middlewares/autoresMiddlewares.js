@@ -43,7 +43,7 @@ const checkAuthorBody = (req, res, next) => {
   if (!isValidEmail(body.email) || body.email.length > 45) {
     return res.json({ error: "La dirección de correo no es correcta" });
   }
-  if (!isValidURL(req.body.image) || body.image.length > 100) {
+  if (!isValidURL(req.body.image) || body.image.length > 200) {
     return res.json({ error: "La URL de la imagen no es correcta" });
   }
   next();

@@ -5,7 +5,8 @@ const pool = mysql.createPool({
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     port: process.env.DB_PORT,
-    database: process.env.DB_NAME
-});
-
-global.db = pool.promise();
+    database: process.env.DB_NAME,  // Utiliza el nombre de la base de datos "blog"
+  });
+  
+  global.db = pool.promise();
+  
