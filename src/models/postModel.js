@@ -7,7 +7,7 @@ const createPost = ({
     author_id,
   }) => {
     return db.query(
-      "insert into posts (titulo, descripcion, fecha_creacion, categoria, autor_id) values (?, ?, ?, ?, ?)",
+      "insert into posts (titulo, description, fecha_creacion, categoria, autores_id_autores) values (?, ?, ?, ?, ?)",
       [title, description, creation_date, category, author_id]
     );
   };
@@ -18,7 +18,7 @@ const createPost = ({
   };
   
   const getPostById = (postId) => {
-    return db.query("select * from posts where idpost = ?", [postId]);
+    return db.query("select * from posts where id_post = ?", [postId]);
   };
   
   const getPostsByAuthorId = (authorId) => {
@@ -28,18 +28,18 @@ const createPost = ({
   // UPDATE
   const updatePostById = (postId, { title, description, creation_date, category, author_id }) => {
     return db.query(
-      "update posts set titulo = ?, descripcion = ?, fecha_creacion = ?, categoria = ?, autor_id = ? where idpost = ?",
+      "update posts set titulo = ?, descripcion = ?, fecha_creacion = ?, categoria = ?, autores_id_autores = ? where id_post = ?",
       [title, description, creation_date, category, author_id, postId]
     );
   };
   
   // DELETE
   const deletePostById = (postId) => {
-    return db.query("delete from posts where idpost = ?", postId);
+    return db.query("delete from posts where id_post = ?", postId);
   };
   
   const deletePostsByAuthorId = (authorId) => {
-    return db.query("delete from posts where autor_id = ?", [authorId]);
+    return db.query("delete from posts where autores_id_autores = ?", [authorId]);
   };
   
   module.exports = {

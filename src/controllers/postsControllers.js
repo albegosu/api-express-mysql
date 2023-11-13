@@ -4,7 +4,7 @@ const AutorModel = require("../models/autorModel");
 // GET
 const getAllPosts = async (req, res) => {
   try {
-    const [posts] = await PostModel.selectAllPosts();
+    const [posts] = await PostModel.getAllPosts();
     let result = [];
     for (let post of posts) {
       const [author] = await AutorModel.selectAuthorById(post.author_id);
@@ -20,7 +20,7 @@ const getAllPosts = async (req, res) => {
 const getPostById = async (req, res) => {
   try {
     const { postId } = req.params;
-    const [result] = await PostModel.selectPostById(postId);
+    const [result] = await PostModel.getPostById(postId);
     if (result[0] === undefined) {
       res.json({});
     } else {
@@ -36,7 +36,7 @@ const getPostById = async (req, res) => {
 const getPostByAuthorId = async (req, res) => {
   try {
     const [authorId] = req.params.authorId;
-    const [result] = await PostModel.selectPostsByAuthorId(authorId);
+    const [result] = await PostModel.getPostsByAuthorId(authorId);
     res.json(result);
   } catch (error) {
     res.json({ error: error.message });
@@ -46,8 +46,8 @@ const getPostByAuthorId = async (req, res) => {
 // CREATE
 const createPost = async (req, res) => {
   try {
-    const [result] = await PostModel.insertPost(req.body);
-    const [post] = await PostModel.selectPostById(result.insertId);
+    const [result] = await PostModel.createPost(req.body);
+    const [post] = await PostModel.getPostById(result.insertId);
     res.json(post[0]);
   } catch (error) {
     res.json({ error: error.message });
